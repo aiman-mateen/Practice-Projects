@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <title>Tip Calculator</title>
+
+    <style>
+        body{
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            background-color:  #2A0C4E;
+        }
+
+        #cards{
+            background-color:  #F5F8DE;
+            color: #9E2B25;
+        }
+
+        #title{
+            color: #F5F8DE;
+            font-style: initial;
+        }
+
+        #icon{
+            color: #c42a22;
+        }
+
+        #calculate{
+           background-color:#9E2B25;
+            color: #F5F8DE;
+            border: 1px solid #F5F8DE;
+            border-radius: 18px;
+            width: 150px;
+            height: 35px;
+            margin-left: auto;
+            margin-right: auto;
+            transition: transform 0.07s ease;
+        }
+
+        #calculate:hover{
+            background-color: #6f1a16;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+     <nav class="navbar navbar-expand-md shadow-sm ">
+        <div class="container justify-content-center">
+            <a href="#Home" class="navbar-brand">
+                <i class="bi bi-currency-dollar " id="icon"><span class="fw-semibold title"  id="title"> TipRight Calculator</span></i>
+            </a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row justify-content-center bill-section">
+            <div class="col-md-6">
+                <div class="card p-4 m-4 shadow-lg" id="cards">
+                
+                    <label for="Bill" class="fw-semibold">Bill Amount:</label>
+                    <input type="number" class="form-control mb-3" id="bill-amount" placeholder="Enter your amount">
+                    
+                    <label for="Tip" class="fw-semibold">Tip Percentage:</label>
+                    <input type="number" class="form-control mb-3" id="tip-per" placeholder="Enter tip in %">
+                    
+                    <button id="calculate">Calculate</button>
+                
+            </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card p-4 m-4 shadow-sm" id="cards">
+                <div class="results justify-content-center text-center"><strong>Your Total:</strong></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+   
+    const calculate = document.getElementById("calculate")
+
+    calculate.addEventListener('click', function(){
+            const amount = parseFloat(document.getElementById("bill-amount").value)
+            const tip = parseFloat(document.getElementById("tip-per").value)
+            const result = document.querySelector(".results")
+               
+            
+            if(isNaN(amount) || amount <= 0 || isNaN(tip) || tip <= 0){
+                result.innerHTML = `<p class = "text-danger text-center fw-semibold">Please enter a valid amount / tip</p>`
+                return;
+            }
+            const tipAmount = ((amount * tip) / 100)
+            const total = amount + tipAmount;
+
+            result.innerHTML = `<p>Your Bill: <strong>PKR ${amount.toFixed(2)}</strong></p>
+            <p>Tip Amount: <strong>PKR ${tipAmount.toFixed(2)}</strong></p>
+            <p class="text-dark">Total Amount: <strong>PKR ${total.toFixed(2)}</strong></p>`
+
+         
+    })
+</script>
+</html>

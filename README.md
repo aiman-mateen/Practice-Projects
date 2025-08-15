@@ -18,6 +18,17 @@ This repository contains my collection of mini-projects built to practice and sh
 - Search for GitHub profiles and view basic info like avatar, bio, followers, and repositories.
 - All HTML, CSS, and JS are in a single file for simplicity.
 
+### 4. [Quiz App](./mini-projects/quizApp)
+- A short quiz with 3 multiple-choice questions.
+- Shows real-time feedback (correct/wrong) after each answer.
+- Displays final score and total time taken at the end.
+
+### 5. [TipRight Calculator](./mini-projects/tipright-calculator)
+- Calculates bill total, tip amount in PKR, and final payable amount based on user input.
+- Accepts bill amount and tip percentage.
+- Displays results instantly upon calculation.
+
+
 ---
 
 ## How to Use

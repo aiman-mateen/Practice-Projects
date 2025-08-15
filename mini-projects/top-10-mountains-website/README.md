@@ -1,1 +1,22 @@
+# Top 10 Mountains Website
+
+A simple 3-page HTML and CSS website showcasing the top 10 mountains in the world with their images and descriptions.
+
+## Features
+- 3 HTML pages with navigation
+- Responsive design using CSS
+- High-quality mountain images (linked from online sources)
+
+## Pages
+1. **First Page** – Introduction to the top mountains
+2. **Second Page** – More details about the mountains
+3. **Last Page** – Final two mountains and conclusion
+
+## Technologies Used
+- HTML5
+- CSS3 (No frameworks used)
+
+## 🎯 Purpose
+This project was created for practice purposes to strengthen my HTML and CSS skills by designing a clean multi-page website without JavaScript.
+
 

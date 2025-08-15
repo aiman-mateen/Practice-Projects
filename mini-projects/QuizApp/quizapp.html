@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+
+    <style>
+
+        h1{
+            text-align: center;
+        }
+
+        h4{
+            text-align: end;
+        }
+        body{
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            padding: 10px 12px;
+            display: flex;
+            flex-direction: column;
+           justify-content: center;
+           align-items: center;
+           align-content: center;
+        }
+
+        .container{
+            /* flex-direction: column; */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .option-btn{
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px; 
+            border: 1px solid #aaa;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #f1f1f1;
+        }
+
+        .option-btn:hover{
+            background-color: #c7c0c0;
+        }
+
+        #result{
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        #next{
+            width: 50%;
+            height: 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            border: 1px solid #f1f1f1;
+        }
+
+        #next:hover{
+            background-color: #aaa;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>Quiz App</h1>
+    <h4 id="score">Score: 0</h4>
+    
+    <div class="container">
+        <h2 id="question"></h2>
+        <div id="options"></div>
+        <button id="next">Next</button>
+        <div id="result"></div>
+    </div>
+</body>
+
+<script>
+    const questions = [
+        {
+            question: "What's the full form of HTML?",
+            options: ["Hyper Text Makeup Language", "Hyper Text Markdown Language", "Hyper Text Markup Language", "High Text Makeup Language"],
+            answer: "Hyper Text Markup Language"
+        },
+
+        {
+            question: "What is the command used to display current directory of the user in linux?",
+            options: ["/", "showdir", "pwd", "curdir"],
+            answer: "pwd"
+        },
+
+        {
+            question: "Who is the founder of linux?",
+            options: ["Linus Trovalds", "Elon Musk", "Jeff Bezos", "Steve Jobs"],
+            answer: "Linus Trovalds"
+        }
+    ]
+
+    let currentQuestion = 0;
+    let score = 0;
+    let startTime;
+    let totalTime = 0;
+
+    const questionEl = document.getElementById("question");
+    const optionsEl = document.getElementById("options");
+    const nextbtn = document.getElementById("next");
+    const result = document.getElementById("result") ;
+    const scoreDisplay = document.getElementById("score")  
+
+    function startQuiz(){
+        const start = questions[currentQuestion];
+        questionEl.textContent = start.question;
+        optionsEl.innerHTML = "";
+
+        start.options.forEach(option => {
+            const btn = document.createElement("button");
+            btn.textContent = option;
+            btn.classList.add("option-btn");
+            btn.addEventListener('click', () => selectAnswer(option));
+            optionsEl.appendChild(btn);
+        });
+
+        result.textContent = "";
+        nextbtn.disabled = true
+
+        startTime = new Date().getTime();
+    }
+
+    function selectAnswer(select){
+        const correctAns = questions[currentQuestion].answer;
+
+        if(select == correctAns){
+            result.textContent = "CORRECT"
+            score++
+        }
+        else{
+            result.textContent = `Wrong! Correct asnwer is "${correctAns}"`
+        }
+
+        scoreDisplay.textContent = `Score: ${score}`
+
+        document.querySelectorAll(".option-btn").forEach(btn => {
+            btn.disabled = true
+        })
+        nextbtn.disabled = false
+
+        const endTime = new Date().getTime();
+        const timeTaken = ((endTime - startTime) / 1000);
+        totalTime += timeTaken;
+        console.log(`Time taken: ${timeTaken.toFixed(2)}`);
+        
+    }
+
+    nextbtn.addEventListener('click', function(){
+        currentQuestion++
+        if(currentQuestion < questions.length){
+            startQuiz();
+        }
+        else{
+            finalScore()
+        }
+    })
+
+    function finalScore(){
+        questionEl.textContent = "Quiz Finished";
+        optionsEl.innerHTML = "";
+        nextbtn.style.display = "none";
+        result.innerHTML = `Your final score is: ${score}/${questions.length} <br>
+         Total time: ${totalTime.toFixed(2)} seconds`
+    }
+
+    startQuiz()
+</script>
+</html>

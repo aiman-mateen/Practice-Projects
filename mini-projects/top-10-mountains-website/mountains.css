@@ -1,0 +1,92 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+
+body{
+    background-image: url("https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+    background-size: cover;
+    color: white; 
+}
+
+
+header{
+    
+    width: 100%;
+    border-bottom: 1px solid #ccc1c1;
+    background-color: black;
+    height: 85px;
+    display: inline-block;
+    
+}
+.logo{
+    /* padding: 0; */
+    /* margin-top: 0; */
+    display: flex;
+    font-size: 28px;
+    gap: 10px;
+    color: white;
+}
+.logo h3{
+    text-align: center;
+    padding: 22px 15px 15px 5px;
+
+}
+
+.logo img{
+    width: 60px;
+    height: 60px;
+    padding: 10px;
+}
+
+.one, .two,.onedesc , .twodesc{
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    padding: 20px;
+}
+
+.eve-desc h4, .k2-desc h4, .kach-desc h4, .lhot-desc h4{
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.everest, .K2, .kanch, .Lhotse, .eve-desc, .k2-desc, .kach-desc, .lhot-desc{
+    width: 50%;
+}
+
+.everest img, .K2 img, .kanch img,
+.Lhotse img {
+    width: 100%;  
+    height: auto;
+    border-radius: 8px;
+}
+
+.K2 img{
+    height: 472px;
+    object-fit: cover;
+}
+
+ footer{
+    text-align: right;
+    padding: 10px;
+
+}
+
+button{
+    text-align: center;
+    background-color: black;
+    border-radius: 20px;
+    border: 2px solid white;
+    width: 90px;
+    height: 40px;
+    justify-content: center;
+}
+
+
+button a{
+    font-size: 16px;
+    color: white;
+    text-decoration: none;
+}

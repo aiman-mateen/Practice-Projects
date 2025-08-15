@@ -1,0 +1,74 @@
+header{
+    width: 100%;
+    border-bottom: 1px solid #ccc1c1;
+}
+
+body{
+    background-image: url("https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+    color: white; 
+    background-size: cover;
+}
+
+.logo{
+    display: flex;
+    font-size: 28px;
+    gap: 10px;
+}
+.logo h3{
+    text-align: center;
+}
+
+.logo img{
+    width: 70px;
+    height: 75px;
+}
+
+.three, .four, .threedesc, .fourdesc{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    gap: 40px;
+}
+
+
+.maka, .choyo, .manaslu, .Nanga, .maka-desc, .cho-desc, .mana-desc, .nanga-desc{
+    width: 50%;
+}
+
+.maka img, .choyo img, .manaslu img, .Nanga img{
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+
+}
+
+.Nanga img{
+    height: 403px;
+    object-fit: cover;
+}
+
+footer{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+
+}
+
+button{
+    text-align: center;
+    background-color: black;
+    border-radius: 20px;
+    border: 2px solid white;
+    width: 90px;
+    height: 40px;
+    justify-content: center;
+    cursor: pointer;
+}
+
+
+
+button a{
+    font-size: 16px;
+    color: white;
+    text-decoration: none;
+}

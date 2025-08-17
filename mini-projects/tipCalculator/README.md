@@ -13,7 +13,7 @@ A simple calculator to compute bill total (PKR), tip amount in PKR, and the gran
 - Simple, responsive design with instant calculation
 
 ## How to Use
-1. Open `tipright-calculator.html` in your browser.
+1. Open `tipcalculator.html` in your browser.
 2. Enter the bill amount.
 3. Enter the tip percentage.
 4. Click **Calculate** to see the results.

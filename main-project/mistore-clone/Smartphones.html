@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smartphones</title>
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+    crossorigin="anonymous"
+  />
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    
+  <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/882/882720.png">
+    <style>
+
+      @font-face {
+      font-family: 'CamphorPro-Regular';
+      src: url('../Xiaomi/camphor-pro-for-xiaomi-4.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    body{
+      font-family: 'CamphorPro-Regular' !important;
+
+    }
+
+    .navbar{
+      background-color: #262525;
+    }
+    
+    .navbar-nav{
+      flex-wrap: wrap;
+    }
+
+    .nav-items a {
+      font-size: 12px;
+      color: #B0B0B0;
+      text-decoration: none;
+      font-family:  'CamphorPro-Regular', sans-serif;
+      position: relative;
+      padding: 0 20px;
+
+    }
+
+    .nav-items a:hover{
+      color: white;
+    }
+
+    .nav-items a::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 12px; /* shorter line */
+      width: 1px;
+      background-color: #b0b0b0;
+    }
+
+    .nav-items:last-child a::after {
+      display: none; 
+    }
+
+
+
+    .icons a i{
+      color: #b0b0b0;
+      
+    }
+
+    .icons i{
+      font-size: 1.2rem;
+      margin-right: 5px;
+      padding-right: 8px;
+    }
+
+        .viewCart {
+  position: relative;
+}
+
+.view-cart-popup {
+  position: absolute;
+  top: 100%;   /* show below the cart icon */
+  right: 0;
+  width: 300px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+  display: none;   /* hidden by default */
+  z-index: 1000;
+  padding: 15px;
+}
+
+.viewCart:hover .view-cart-popup {
+  display: block;   /* show on hover */
+}
+
+.mini-cart-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.mini-cart-item img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+}
+
+.mini-cart-details {
+  flex: 1;
+  font-size: 14px;
+}
+
+.mini-cart-name {
+  font-weight: 600;
+}
+
+.mini-cart-price {
+  color: #ff6d00;
+  font-weight: bold;
+}
+
+.mini-cart-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.mini-cart-buttons a {
+  flex: 1;
+  text-align: center;
+  padding: 8px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.mini-cart-buttons .view-cart {
+  /* border: 1px solid #aaa; */
+  color: #141414;
+  text-decoration: underline;
+  margin-right: 5px;
+}
+
+.mini-cart-buttons .checkout {
+  background: black;
+  color: #fff;
+}
+
+ .remove-btn {
+        flex-shrink: 0;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+      }
+
+      .remove-btn i {
+        font-size: 16px;
+        color: #666;
+        transition: color 0.3s ease;
+      }
+
+      .remove-btn:hover i {
+        color: red;
+      }
+
+
+/* search container  */
+
+    #search-box {
+       background-color: transparent;        
+       color: white;                   
+       border: none;
+        border-bottom: 2px solid white; 
+        border-radius: 0;
+        outline: none;
+        padding: 5px 10px;
+        width: 0;
+        opacity: 0;
+        transition: width 0.4s ease, opacity 0.3s ease;
+        position: absolute;
+        top: 0;
+        right: 40px;
+        text-align: start;
+    }
+
+    #search-box.active {
+        width: 140px;  
+        opacity: 1;
+        height: 30px;
+    }
+
+
+    .search-result {
+      position: absolute;
+      top: 45px;
+      right: 0;
+      background: white !important;
+      color: #333; 
+      width: 250px;
+      max-height: 300px;
+      padding: 10px;
+      overflow-y: auto;
+      border: 1px  solid #444;
+      border-radius: 6px;
+      z-index: 9999 !important;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      display: none;
+    }
+
+    .search-item{
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      border-radius: 4px;
+      transition: background-color 0.2s ease;
+    }
+
+    .search-item img{
+      width: 35px;
+      height: 35px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+
+    .search-item span{
+      color: #333;
+      font-size: 14px;
+    }
+
+    .search-item:hover{
+      background: #ddd !important;
+    }
+
+    .no-result{
+      padding: 8px;
+      color: #777;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    .search-container{
+      position:  relative !important;
+    }
+
+
+
+    .small-badge{
+      font-size: 10px;
+      padding: 2px 8px;
+      z-index: 1;
+      top: 1%;
+      left: 35%;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      text-align: center;
+
+    }
+
+    .navbar-nav {
+      flex-wrap: wrap;
+    }
+
+    
+    .icons a i{
+      color: #b0b0b0;
+      
+    }
+
+    .icons i{
+      font-size: 1.2rem;
+      margin-right: 5px;
+      padding-right: 8px;
+    }
+
+    .small-badge{
+      font-size: 10px;
+      padding: 2px 8px;
+      z-index: 1;
+      top: 1%;
+      left: 35%;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      text-align: center;
+
+    }
+
+    .navbar-nav {
+      flex-wrap: wrap;
+    }
+
+    .bottom-bar{
+      background-color: #0a0a0a;
+      padding: 5px;
+      position: relative;
+    }
+
+    @media (max-width: 768px){
+      .bottom-bar {
+        font-size: 13px;
+        height: auto;
+      }
+    }
+
+    .close-btn{
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 14px;
+        font-weight: bold;
+        text-align: center;
+        align-items: center;
+        line-height: 15px;
+        cursor: pointer;
+        color: black;
+        background-color: rgb(218, 214, 214);
+        height: 18px;
+        width: 18px;
+        border-radius: 3px;
+        display: inline-block;
+    }
+
+    .bottom-bar a{
+      text-decoration: none;
+      color: white;
+    }
+
+   /* links over the carousel */
+
+.third-navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: transparent ;
+  z-index: 10; 
+  padding: 0 20px;
+}
+
+.third-navbar:hover{
+    background-color: white;
+    border-bottom: #000;
+}
+
+
+.logo-img{
+  width: 170px;
+  height: auto;
+  max-width: 100%;
+}
+
+.nav-link h2{
+  font-size: 14px;
+  color: #000000;
+  
+}
+
+.nav-wrapper{
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+@media (max-width: 767.98px){
+  
+  .logo-img{
+    width: 100px;
+    height: 50px;
+  } 
+
+  .navbar-toggler-icon{
+    height: 20px;
+    width: 20px;
+  }
+
+}
+
+/* dropdown panel */
+
+.dropdown-panel {
+  position: absolute;
+  top: 100%; 
+  left: 0;
+  right: 0;
+  width: 100%;
+  background-color: white;
+  z-index: 1000;
+  display: none; 
+  padding: 1rem 2rem;
+  border-top: 2px solid #dad9d9;
+   margin-top: -1px;
+}
+
+.new-arrivals-preview{
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0 2rem;
+}
+
+.dropdown-card{
+  width: 180px;
+  text-align: center;
+}
+
+.dropdown-card img{
+  height: 150px;
+  object-fit: contain;
+}
+
+.view-more-button img{
+  height: 150px;
+  object-fit: contain;
+}
+
+.view-more-button{
+  color: #000;
+  text-decoration: none;
+}
+
+.nav-item::before {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: transparent;
+  z-index: 999;
+}
+
+.nav-item:hover .dropdown-panel,
+.dropdown-panel:hover {
+  display: block !important;
+   
+}
+
+.twoLinksTab{
+  font-size: 12px;
+  display: flex;
+  flex-direction: row;
+  padding: 15px;
+  align-items: center;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.list-menulinks{
+  list-style: none;
+  display: flex;
+  gap: 6px;
+}
+
+.listLinks{
+ text-decoration: none;
+ color: #000;
+}
+
+.listLinks:hover{
+  text-decoration: underline;
+}
+
+.right-icon{
+  font-size: 12px;
+  color: #b0b0b0;
+}
+
+.newcollection{
+  font-size: 26px;
+  font-weight: bolder;
+}
+
+.horizontalTitles{
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.option-value{
+  color: #000;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.sortCategories{
+  position: relative;
+}
+
+.sortCategories a::after{
+  content: '';
+  position: absolute;
+  top: 55%;
+  right: -8px;
+  transform: translateY(-50%);
+  height: 15px;
+  width: 1px;
+  background-color: #c5c3c3;
+}
+
+.sortCategories:last-child a::after{
+  display: none;
+}
+
+
+/* new arrivals and top sellers */
+.product-card{
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: white;
+}
+
+.product-card:hover{
+  transform: scale(1.02);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.product-card img{
+  object-fit: contain;
+  width: 100%;
+  border-radius: 6px;
+}
+
+.savings-badge{
+  width: 150px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 15px;
+}
+
+
+@media(max-width: 576px){
+  .newProductCards {
+    display: flex !important;
+    flex-wrap: wrap !important;
+  }
+  
+  .newProductCards > div {
+    flex: 0 0 50% !important; /* 2 products per row */
+    max-width: 50% !important;
+  }
+  
+  .product-card img {
+    height: 120px;
+    width: 100%;
+    object-fit: contain;
+  }
+
+    .savings-badge{
+    width: 100px;
+  }
+}
+
+
+
+/* colored banners */
+
+.banner-box {
+  position: relative;
+  transition: box-shadow 0.3s ease;
+}
+ .banner-box:hover{
+    border-radius: 5px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+}
+
+.banner-section{
+  transition: transform 0.3s ease;
+}
+
+  .banner-section:hover {
+    transform: scale(1.05);
+    z-index: 1;
+  }
+  
+  @media (max-width: 576px){
+
+  }
+
+  /* contact section */
+
+  .email-address{
+    border-radius: 7px;
+    background-color: white;
+    border: 1px solid rgb(233, 233, 233);
+  }
+
+  .rightbtn{
+    position: absolute; 
+    top: 50%; 
+    right: 10px;
+    transform: translateY(-50%);
+    border: none;
+    background: none;
+  }
+
+
+
+.social-icons{
+    display: inline-block;
+    list-style: none;
+    margin-right: 10px;
+  }
+
+.list-icons{
+  font-size: 24px;
+  color: rgb(111, 108, 108);
+}
+
+.bi-facebook:hover{
+  color: #1877F2;
+}
+
+.bi-youtube:hover{
+  color: #FF0000
+}
+
+.bi-instagram:hover{
+  color: #962fbf;
+}
+
+.bi-tiktok:hover, .bi-twitter-x:hover{
+  color: black;
+}
+
+/* links  */
+
+.second-last-footer{
+  background-color:  rgb(145, 145, 145);
+  padding: 5px;
+}
+
+.footer-text{
+  color: white;
+}
+
+.last-footer{
+  padding-top: 50px;
+}
+
+
+.footer-link{
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+}
+
+.footer-link .footer-text{
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.footer-link .footer-text:hover{
+  text-decoration: underline;
+}
+.footer-link i {
+  font-size: 1.5rem;
+  color: white;
+}
+
+.sec-footer{
+  border-right: 1px solid white;
+}
+
+.sec-footer:last-child{
+  border-right: none;
+}
+
+.last-footer{
+  background-color: #212121;
+  color: #b0b0b0;
+  margin: 0;
+}
+
+.footerlist li{
+  list-style: none;
+}
+
+.footer-link{
+  color: #b0b0b0;
+  text-decoration: none;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.footer-link:hover{
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* FOOTER */
+
+
+.last-footer h6{
+  font-size: 12px;
+  margin-bottom: 25px;
+  font-weight: bold;
+  margin-left: 30px;
+  letter-spacing: 1px;
+}
+
+.last-footer ul li{
+  margin-bottom: 18px;
+}
+
+.footerlist p{
+  font-size: 12px;
+}
+
+
+
+.payment-container{
+  gap: 10px;
+  margin-left: 30px;
+}
+.paymentmethods{
+  background-color: white;
+  border-radius: 4px;
+
+}
+
+.paymentmethods img{
+  width: 40px;
+  height: 40px;
+}
+
+.copyright-section{
+  color: #b0b0b0;
+  background-color: #212121;
+  font-size: 12px;
+}
+
+.floating-buttons {
+  position: fixed;
+  bottom: 40px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 9999;
+}
+
+.pill-btn {
+  display: inline-flex;
+  align-items: center;
+  background-color: #1f73b7;
+  height: 40px;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+}
+
+
+.pill-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+@media (max-width: 768px){
+  .floating-buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    left: 20px;
+    right: 20px;
+    width: auto;
+  }
+}
+
+.activeClass{
+  color: #ff6d00 !important
+}
+
+</style>
+
+</head>
+<body>
+    <nav class="navbar shadow-sm d-none d-lg-block"> 
+        <div class="container-fluid" id="navbar-cont">
+          <div class="row w-100 align-items-center">
+              <div class="col-8" id="text-links">
+                <ul class="navbar-nav d-flex flex-row align-items-center justify-content-end me-5">
+                  <li class="nav-items"><a href="">MI Paksitan</a></li>
+                  <li class="nav-items"><a href="">MI Community</a></li>
+                  <li class="nav-items"><a href="">Support</a></li>
+                  <li class="nav-items"><a href="">Track my order</a></li>
+                  <li class="nav-items"><a href="">Wholesale Query</a></li>
+                  <li class="nav-items"><a href="">Report Faulty Product</a></li>
+                </ul>
+              </div>
+              <div class="col-2 d-flex justify-content-end gap-2 icons">
+                 <div class="search-container position-relative">
+                  <a href="javascript:void(0)"><i class="bi bi-search" id="search-icon"></i></a>
+                  <input type="text" id="search-box" class="search-box d-none" placeholder="Search products">
+                </div> 
+                  <a href="xiaomiAccount.html"><i class="bi bi-person" id="account"></i></a>
+                  <a href=""><i class="bi bi-heart" id="notifications"></i></a>
+                 <div class="viewCart">
+                      <a href="cart.html" class="position-relative"><i class="bi bi-bag" id="shopping-cart"></i>
+                      <span class="position-absolute badge rounded-pill text-light small-badge" style="background-color: #ff6d00;"id="cart-count">0</span></a>
+                          <div class="view-cart-popup"></div>
+                  </div>
+              </div>
+            </div>
+        </div>
+    </nav>
+
+      <div class="bottom-bar text-center">
+            <a href="#">Sign up Now! & Get Instant Loyalty Points!</a>
+            <span class="close-btn">&times;</span>
+         </div>
+
+         <div class="nav-wrapper">
+       <div class="nav-over-carousel w-100">
+        <nav class="navbar navbar-expand-lg third-navbar fixed-top dynamic-theme position-relative">
+          <div class="container d-flex align-items-center justify-content-between flex-sm-row flex-column" id="icon-text">
+           <div class="d-flex align-items-center" id="icon-menu"> 
+               <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+
+              <a class="navbar-brand" href="Xiaomi.html">
+                <img src="https://mistore.pk/cdn/shop/files/Authorized_Reseller_Logo_Website_Logo_Size_Website_Logo_Size_94053093-0a4e-4ab1-9806-e5851e9a1c7f.svg?v=1721304744&width=255" alt="xiaomi" class="img-fluid logo-img">
+              </a>           
+          </div>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ms-1 d-flex flex-lg-row flex-column" id="third-links"></ul>
+          </div>  
+          </nav>
+        </div>
+      </div>
+
+
+      <div class="container">
+        <div class="row twoLinksTab">
+         <ul class="list-menulinks">
+          <li><a href="#" class="listLinks">Home</a></li>
+          <span class="right-icon"><i class="bi bi-caret-right-fill"></i></span>
+          <li><a href="Smartphones.html"  class="listLinks">Smartphones</a></li>
+         </ul>
+        </div>
+      </div>
+
+      <div class="container py-4">
+        <div class="row">
+          <h1 class="newcollection">Smartphones</h1>
+        </div>
+        <div class="row">
+          <ul class="horizontalTitles">
+            <li class="sortCategories"><a href="#" class="option-value order-1" id="Relevance">Relevance</a></li>
+            <li class="sortCategories"><a href="#" class="option-value order-4" id="new">New</a></li>
+            <li class="sortCategories"><a href="#" class="option-value order-2" id="highestprice">Highest Price</a></li>
+            <li class="sortCategories"><a href="#" class="option-value order-3" id="lowestprice">Lowest Price</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row">
+          <img src="https://mistore.pk/cdn/shop/collections/collection-01-01.jpg?v=1737458046" alt="Smartphones" class="img-fluid">
+        </div>
+      </div>
+
+      <div class="container py-5 mt-5 mb-2 product-box">
+        <div class="row newProductCards">
+        </div>
+       </div>
+
+      
+<div class="container-fluid p-0 mt-4">
+  <div class="row g-0">
+    <div class="col-sm-4 banner-section">
+  <div class="policies banner-box" style="background-color: #ff6d00;">
+    <a href="#refundreturnpolicy" class="d-block text-center">
+        <img src="//mistore.pk/cdn/shop/files/slice1_3x_e0613cf2-c808-46ef-bcd0-3f61c51e072c_large.png?v=1657089878" alt="refundpolicy" height="110px" width="190px">
+    </a>
+  </div>
+    </div>
+
+    <div class="col-sm-4 banner-section">
+  <div class="payments banner-box" style="background-color: #ff9505;">
+    <a href="#refundreturnpolicy" class="d-block text-center">
+        <img src="//mistore.pk/cdn/shop/files/slice2_3x_b5db767b-cec9-449e-9d55-d079ee3198b5_large.png?v=1657089878" alt="servicecenter" height="110px" width="190px">
+    </a>
+  </div>
+    </div>
+
+    <div class="col-sm-4 banner-section">
+  <div class="servicecenter banner-box" style="background-color: #eeb902;">
+    <a href="#servicecenter" class="d-block text-center">
+        <img src="//mistore.pk/cdn/shop/files/slice3_3x_766602b1-0840-46bd-bc7a-90857f4e5f9d_large.png?v=1657089878" alt="servicecenter" height="110px" width="190px">
+    </a>
+  </div>
+  </div>
+  </div>
+</div>
+
+
+<div class="container-fluid mt-4 intouch-container">
+  <div class="row align-items-center">
+    <div class="col-md-3">
+      <h2 class="touchheading ms-4" style="font-size: 22px;">Let's stay in touch</h2>
+      <p class="touch-text ms-4" style="font-size: 14px;">Get updates on sales specials and more</p>
+    </div>
+    <div class="col-md-3">
+    <form action="contactfooter" method="post" style="position: relative; max-width: 100%;">
+      <input type="text" placeholder="Enter  Email Address" class="email-address form-control" style="width: 100%;">
+      <button type="submit" class="rightbtn"><i class="bi bi-chevron-right"></i></button>
+    </form>
+  </div>
+  <div class="col-md-3">
+    <h2 class="touchheading" style="font-size: 22px;">Follow Mi</h2>
+      <p class="touch-text" style="font-size: 14px;">We want to hear from you</p>
+  </div> 
+  <div class="col-md-3 d-flex gap-1 justify-content-end flex-wrap">
+    <ul  class="d-flex list-unstyled m-0 p-0 gap-2 justify-content-end flex-wrap">
+    <li class="facebook social-icons">
+      <a href="#facebook"><i class="bi bi-facebook list-icons"></i></a>
+    </li>
+    <li class="youtube social-icons">
+      <a href="#youtube"><i class="bi bi-youtube list-icons"></i></a>
+    </li>
+    <li class="instagram social-icons">
+      <a href="#instagram"><i class="bi bi-instagram list-icons"></i></a>
+    </li>
+    <li class="x social-icons">
+      <a href="#x"><i class="bi bi-twitter-x list-icons"></i></a>
+    </li>
+    <li class="tiktok social-icons">
+      <a href="#tiktok"><i class="bi bi-tiktok list-icons"></i></a>
+    </li>
+    </ul>
+  </div>
+</div>
+</div>
+
+<div class="container-fluid d-none d-md-block">
+<div class="row mt-2 second-last-footer justify-content-center">
+  <div class="col-md-4 d-flex justify-content-center sec-footer">
+    <a href="#About" class="footer-link d-flex align-items-center gap-2">
+    <i class="bi bi-info-circle"></i>
+    <span class="footer-text">About Smartlink</span>
+    </a>
+  </div>
+  <div class="col-md-4 d-flex justify-content-center sec-footer">
+    <a href="#faqs" class="footer-link d-flex align-items-center gap-2">
+    <i class="bi bi-question-circle"></i>
+    <span class="footer-text">FAQ's</span>
+    </a>
+  </div>
+  <div class="col-md-4  d-flex justify-content-center sec-footer">
+    <a href="#help" class="footer-link d-flex align-items-center gap-2">
+    <i class="bi bi-chat-square-text"></i>
+    <span class="footer-text">Need Help?</span>
+    </a>
+  </div>
+</div>
+</div>
+
+<div class="container-fluid d-none d-md-block last-footer">
+  <div class="row justify-content-between">
+    <div class="col-12 col-sm-6 col-md-3 col-lg-2 mb-4">
+      <h6>PRODUCTS</h6>
+        <ul class="footerlist">
+          <li><a href="#" class="footer-link">All Products</a></li>
+          <li><a href="#" class="footer-link">Redmi Buds & Play</a></li>
+          <li><a href="#" class="footer-link">Redmi Watch 5 Active</a></li>
+          <li><a href="#" class="footer-link">Xiaomi Smart band 9 Active</a></li>
+          <li><a href="#" class="footer-link">Xiaomi Smart Camera C500 Pro</a></li>
+          <li><a href="#" class="footer-link">Xiaomi 67W GaN Charger 2C1A</a></li>
+
+        </ul>
+    </div>
+
+    <div class="col-12 col-sm-6 col-md-3 col-lg-2 mb-4"> 
+     <h6>GET TO KNOW US</h6> 
+      <ul class="footerlist">
+        <li><a href="#" class="footer-link">Our Team</a></li>
+        <li><a href="#" class="footer-link">About Us</a></li>
+        <li><a href="#" class="footer-link">Terms & Conditions</a></li>
+        <li><a href="#" class="footer-link">Packing Process</a></li>
+        <li><a href="#" class="footer-link">Customer Reviews</a></li>
+      </ul>
+  </div>
+
+  
+  <div class="col-12 col-sm-6 col-md-3 col-lg-2 mb-4"> 
+    <h6>AFTER SALE SERVICES</h6>
+      <ul class="footerlist">
+        <li><a href="#" class="footer-link">Privacy Policy</a></li>
+        <li><a href="#" class="footer-link">Refund & Return Policy</a></li>
+        <li><a href="#" class="footer-link">Warranty & Repair Policy</a></li>
+        <li><a href="#" class="footer-link">Shipping & Cancellation Policy</a></li>
+        <li><a href="#" class="footer-link">Estimated Delivery time</a></li>
+        <li><a href="#" class="footer-link">Secure Payment</a></li>
+        <li><a href="#" class="footer-link">User Guide</a></li>
+  </ul>
+  </div>
+
+
+<div class="col-12 col-sm-6 col-md-3 col-lg-3 mb-4"> 
+       <h6>LET US HELP YOU</h6>
+        <ul class="footerlist">
+          <li><a href="#" class="footer-link">How to Place Order</a></li>
+          <li><a href="#" class="footer-link">E-Gift Card</a></li>
+          <li><a href="#" class="footer-link">Product Authentication</a></li>
+          <li><a href="#" class="footer-link">Track Your Order</a></li>
+          <li><a href="#" class="footer-link">FAQs</a></li>
+          <li><a href="#" class="footer-link">Blogs</a></li>
+          <li><a href="#" class="footer-link">Xiaomi Community</a></li>
+  </ul>
+</div>
+
+<div class="col-12 col-sm-6 col-md-3 col-lg-3 mb-4"> 
+       <h6>CUSTOMER CARE</h6>
+        <ul class="footerlist">
+          <li><a href="#" class="footer-link">Support</a></li>
+          <li><a href="#" class="footer-link">Helpline Number: 03-111-111-050</a></li>
+          <li><a href="#" class="footer-link">info@mistore.pk</a></li>
+          <li><p>Service Timings 10am-6pm</p></li>
+        </ul>  
+          <h6 class="mt-5">PAYMENT METHODS</h6>
+          <div class="payment-container d-flex">
+          <div class="paymentmethods">
+            <img src="https://cdn.shopify.com/s/files/1/0231/3627/2464/files/web_icons-03.webp?v=1746514758" alt="mastercard">
+          </div>  
+          <div class="paymentmethods">
+            <img src="https://cdn.shopify.com/s/files/1/0231/3627/2464/files/web_icons-02.webp?v=1742289789" alt="visa">
+          </div>  
+          <div class="paymentmethods">
+            <img src="https://cdn.shopify.com/s/files/1/0231/3627/2464/files/bank-transfer-icon.svg?v=1719473184" alt="banktransfer">
+          </div>
+          <div class="paymentmethods">
+            <img src="https://cdn.shopify.com/s/files/1/0231/3627/2464/files/web_icons-04.webp?v=1746515011" alt="COD">
+          </div>
+          </div> 
+    
+  </div>
+</div>
+</div>
+<footer class="text-center copyright-section d-none d-md-block">Copyright © 2025 Xiaomi. All Rights Reserved</footer>
+
+
+<div class="floating-buttons">
+    <a href="#" class="pill-btn help-btn">
+    <i class="bi bi-question-circle me-2"></i>Help</a>
+  <!-- <a href="#" class="pill-btn reward-btn">
+     <i class="bi bi-gift-fill me-2"></i>Reward</a> -->
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+</body>
+
+
+
+
+<script src="xiaomilogin.js"></script>
+
+<script>
+
+
+let current = "Smartphones"; 
+
+  document.addEventListener("DOMContentLoaded", () => {
+    displayProducts(current);
+  });
+
+  document.getElementById("Relevance").addEventListener("click", (e) => {
+    e.preventDefault();
+    displayProducts(current); 
+  });
+
+  document.getElementById("new").addEventListener("click", (e) => {
+    e.preventDefault();
+    const reversed = [...navbar_dropdown[current]].reverse();
+    displayProducts(current, reversed);
+  });
+
+  document.getElementById("highestprice").addEventListener("click", (e) => {
+    e.preventDefault();
+    const sortedHigh = [...navbar_dropdown[current]].sort((a, b) => {
+      return extractPrice(b.price) - extractPrice(a.price);
+    });
+    displayProducts(current, sortedHigh);
+  });
+
+  document.getElementById("lowestprice").addEventListener("click", (e) => {
+    e.preventDefault();
+    const sortedLow = [...navbar_dropdown[current]].sort((a, b) => {
+      return extractPrice(a.price) - extractPrice(b.price);
+    });
+    displayProducts(current, sortedLow);
+  });
+
+  function extractPrice(priceStr) {
+    return parseInt(priceStr.replace(/\D/g, ""));
+  }
+
+</script>
+</html>

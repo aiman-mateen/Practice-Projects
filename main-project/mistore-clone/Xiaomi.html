@@ -1,0 +1,453 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+  />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/882/882720.png">
+
+
+  <!-- Swiper CSS -->
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+
+<link rel="stylesheet" href="xiaomi.css">
+
+  <title>Mi Pakistan - Xiaomi Online Official Store in Pakistan</title>
+ </head>
+ <body>
+
+      <nav class="navbar shadow-sm d-none d-lg-block"> 
+        <div class="container-fluid" id="navbar-cont">
+          <div class="row w-100 align-items-center">
+              <div class="col-8" id="text-links">
+                <ul class="navbar-nav d-flex flex-row align-items-center justify-content-end me-5">
+                  <li class="nav-items"><a href="">MI Paksitan</a></li>
+                  <li class="nav-items"><a href="">MI Community</a></li>
+                  <li class="nav-items"><a href="">Support</a></li>
+                  <li class="nav-items"><a href="">Track my order</a></li>
+                  <li class="nav-items"><a href="">Wholesale Query</a></li>
+                  <li class="nav-items"><a href="">Report Faulty Product</a></li>
+                </ul>
+              </div>
+              <div class="col-2 d-flex justify-content-end gap-2 icons">
+                  <div class="search-container position-relative">
+                  <a href="javascript:void(0)"><i class="bi bi-search" id="search-icon"></i></a>
+                  <input type="text" id="search-box" class="search-box d-none" placeholder="Search products">
+                </div>  
+                  <a href="xiaomiAccount.html"><i class="bi bi-person" id="account"></i></a>
+                  <a href=""><i class="bi bi-heart" id="notifications"></i></a>
+                  <div class="viewCart">
+                      <a href="cart.html" class="position-relative"><i class="bi bi-bag" id="shopping-cart"></i>
+                      <span class="position-absolute badge rounded-pill text-light small-badge" style="background-color: #ff6d00;"id="cart-count">0</span></a>
+                          <div class="view-cart-popup"></div>
+                  </div>
+              </div>
+            </div>
+        </div>
+         </nav>
+
+         <div class="bottom-bar text-center">
+            <a href="#">Sign up Now! & Get Instant Loyalty Points!</a>
+            <span class="close-btn">&times;</span>
+         </div>
+
+      
+           
+
+    <div class="carousel-container position-relative"> 
+      <div class="nav-wrapper">
+       <div class="nav-over-carousel w-100">
+        <nav class="navbar navbar-expand-lg third-navbar fixed-top dynamic-theme position-relative">
+          <div class="container d-flex align-items-center justify-content-between flex-sm-row flex-column" id="icon-text">
+           <div class="d-flex align-items-center" id="icon-menu"> 
+               <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+
+              <a class="navbar-brand" href="#">
+                <img src="https://mistore.pk/cdn/shop/files/Authorized_Reseller_Logo_Website_Logo_Size_Website_Logo_Size_94053093-0a4e-4ab1-9806-e5851e9a1c7f.svg?v=1721304744&width=255" alt="xiaomi" class="img-fluid logo-img">
+              </a>           
+          </div>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ms-1 d-flex flex-lg-row flex-column" id="third-links"></ul>
+          </div> 
+          </nav>
+        </div>
+      </div>
+
+         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+             <div class="carousel-inner" id="carousel-images">
+              </div> 
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+      </div>  
+     </div>
+
+
+  <div class="category-floating-container shadow-sm py-2 " id="categoryIcons">
+  </div>
+
+  <div class="container-fluid d-none d-lg-block" id="clickableImages">
+  </div>
+
+
+<div class="container py-5 mt-5 mb-2 product-box">
+  <div class="new-arrivals-box d-flex align-items-center position-relative mb-4">
+    <div class="new-arrivals-text w-100 text-center">
+      <h4 class="new-arrivals-heading m-0 fw-semibold">NEW ARRIVALS</h4>
+    </div>
+    <a href="xiaomilogin.html"><button class="view-all position-absolute d-none d-md-block end-0 me-4">View All</button></a>
+  </div>
+
+
+  <div class="swiper mySwiper" id="new-arrivals-slider">
+    <div class="swiper-wrapper"></div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+</div>
+
+
+
+<div class="container mt-4 mb-5 d-md-block product-box">
+  <div class="top-seller-box d-flex align-items-center position-relative mb-4">
+    <div class="top-seller-text w-100 text-center">
+      <h4 class="top-seller-heading m-0 fw-semibold">TOP SELLER</h4>
+    </div>
+    <a href="PowerBank&Charging.html"><button class="view-all position-absolute d-none d-md-block end-0 me-4">View All</button></a>
+  </div>
+
+
+  <div class="swiper mySwiper"  id="top-seller-slider">
+    <div class="swiper-wrapper">
+    </div>
+    
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+</div>
+
+
+<div class="container mt-5" id="promosection">
+  <div class="left-promo">
+    <a href="#mysterybox" class="promo-media text-decoration-none">
+      <img src="https://mistore.pk/cdn/shop/files/Blog_Image_29.jpg?v=1753275810" alt="Mystery Box">
+    </a>
+    <div class="promo-detail">
+      <h3 class="promo-text">Introducing the Mistore.pk Mystery Box – Big Surprises, Bigger Value!</h3>
+      <p class="description">Get ready for a surprise! Mi Mystery Box by Mistore.pk includes exciting, valuable Xiaomi gadgets at a great price – perfect as a gift or for yourself.</p>
+      <button class="view-all">View All</button>
+    </div>
+  </div>
+
+  <div class="right-promo">
+    <div class="video-group">
+      <a href="#xiaomiproducts" class="video">
+        <img src="https://mistore.pk/cdn/shop/files/youtube_video_thumbnail.webp?v=1746430379" alt="Video 1">
+        <div class="play-icon"><i class="bi bi-play-fill"></i></div>
+      </a>
+      <a href="#xiaomiproducts" class="video">
+        <img src="https://mistore.pk/cdn/shop/files/Note_14_Series_Thumb_Nail_1.webp?v=1746430404" alt="Video 2">
+        <div class="play-icon"><i class="bi bi-play-fill"></i></div>
+      </a>
+    </div>
+    <button class="view-all">View All</button>
+  </div>
+</div>
+
+
+<div class="container mt-5 d-none d-md-block" id="reviewsection">
+  <div class="row align-items-center justify-content-center">
+    <div class="col-md-6 d-flex align-items-center justify-content-center border-end" id="reviewratings-div">
+      <section class="ratings-div d-flexalign-items-center text-center gap-3">
+      <div class="stars">
+      <i class="bi bi-star-fill" style="color: rgba(8, 156, 131, 0.819)"></i>
+      <i class="bi bi-star-fill"  style="color: rgba(8, 156, 131, 0.819)"></i>
+      <i class="bi bi-star-fill"  style="color: rgba(8, 156, 131, 0.819)"></i>
+      <i class="bi bi-star-fill"  style="color: rgba(8, 156, 131, 0.819)"></i>
+      <i class="bi bi-star-fill"  style="color: rgba(8, 156, 131, 0.819)"></i>
+      </div>
+      <div class="ratings fw-semibold me-5"  style="color: rgba(8, 156, 131, 0.819)">3750 Reviews</div>
+      </section>
+    </div>
+    <div class="col-md-6 d-flex justify-content-evenly align-items-center flex-wrap gap-4">
+      <div class="verifiedreviews position-relative">
+      <img src="https://judgeme-public-images.imgix.net/judgeme/medals-v2-2025-rebranding/ver_rev/diamond.svg?auto=format" alt="Diamond Medal" class="medal-img">
+      <div class="reviewsratings">3750</div>
+      </div>
+      
+      <div class="monthlyRecord">
+      <img src="https://judgeme-public-images.imgix.net/judgeme/medals-v2-2025-rebranding/mon_rec/diamond.svg?auto=format" alt="Diamond Medal">
+      </div>
+
+      <div class="top1stores">
+      <img src="https://judgeme-public-images.imgix.net/judgeme/medals-v2-2025-rebranding/tops/1-percent.svg?auto=format" alt="Diamond Medal">
+      </div>
+      <div class="trending">
+      <img src="https://judgeme-public-images.imgix.net/judgeme/medals-v2-2025-rebranding/tops_trend/1-percent.svg?auto=format" alt="Diamond Medal">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-5 p-2">
+  <div class="content-block">
+    <h1><strong style="font-size: 20px;">Mi Store</strong></h1>
+  </div>
+  <div class="content-block">
+    <h2><strong style="font-size: 20px;">Official Xiaomi Store in Pakistan – Your Retail Therapy!</strong></h2>
+  </div>
+  <div class="content-block">
+    <p style="font-size: 14px; color: #484646;" class="text-muted">With the surge of online mobile shopping in Pakistan, Mistore.pk has become your one-stop shop for all Xiaomi Products. As an official Xiaomi store, we provide all mi Smartphone and eco-products, including those made by its subsidiaries Redmi and POCO. Being the business partners of Xiaomi Pakistan, we have the most diverse range of authentic Xiaomi smart devices within the categories of Audio, Home 
+      <a href="#mistore-collections-securitycameras" class="text-decoration-none"> 
+        <strong>Xiaomi Security Cameras</strong>
+      </a>
+      Mobile phones, Smart Devices, 
+      <a href="collections-powerbank"  class="text-decoration-none">
+        <strong>Xiaomi/Redmi Power Bank</strong>
+      </a>
+      ,
+      <a href="collections-micharges"  class="text-decoration-none">
+        <strong>Charger</strong>
+      </a>
+      & Cables, etc. In addition, we offer economical and cheerful Xiaomi, 
+      <a href="collections-poco"  class="text-decoration-none">
+        <strong>POCO</strong>
+      </a>
+      &
+      <a href="collections-redmiphones"  class="text-decoration-none">
+        <strong>Redmi mobiles</strong>
+      </a>
+      with ultra-modern functionality.
+    </p>
+  </div>
+
+  <div class="content-block">
+    <h2><strong style="font-size: 20px;">Enjoy the Xiaomi Sale's & Deals at Xiaomi Official Store - MiStore</strong></h2>
+  </div>
+  <div class="content-block">
+    <p style="font-size: 14px; color: #484646;" class="text-muted">Here at Mistore.pk, you can avail exclusive discounts offered by Xiaomi and discover unmatched prices. We assure you that all the products on our website are 100% authentic and come with genuine packaging along with their warranties.You can upgrade your lifestyle with smart, trendy and affordable tech products without stepping out of your comfort zone! There is an extensive range of innovative gadgets under each category. Whether you are starting your fitness journey, updating the surveillance system of your home or need some  
+      <a href="#mistore-collections-travel" class="text-decoration-none"> 
+        <strong>travel essentials</strong>
+      </a>, Mistore.pk has got you covered! 
+    </p>
+  </div>
+</div>
+
+
+<div class="container-fluid p-0 mt-4">
+  <div class="row g-0">
+    <div class="col-sm-4 banner-section">
+  <div class="policies banner-box" style="background-color: #ff6d00;">
+    <a href="#refundreturnpolicy" class="d-block text-center">
+        <img src="//mistore.pk/cdn/shop/files/slice1_3x_e0613cf2-c808-46ef-bcd0-3f61c51e072c_large.png?v=1657089878" alt="refundpolicy" height="110px" width="190px">
+    </a>
+  </div>
+    </div>
+
+    <div class="col-sm-4 banner-section">
+  <div class="payments banner-box" style="background-color: #ff9505;">
+    <a href="#refundreturnpolicy" class="d-block text-center">
+        <img src="//mistore.pk/cdn/shop/files/slice2_3x_b5db767b-cec9-449e-9d55-d079ee3198b5_large.png?v=1657089878" alt="servicecenter" height="110px" width="190px">
+    </a>
+  </div>
+    </div>
+
+    <div class="col-sm-4 banner-section">
+  <div class="servicecenter banner-box" style="background-color: #eeb902;">
+    <a href="#servicecenter" class="d-block text-center">
+        <img src="//mistore.pk/cdn/shop/files/slice3_3x_766602b1-0840-46bd-bc7a-90857f4e5f9d_large.png?v=1657089878" alt="servicecenter" height="110px" width="190px">
+    </a>
+  </div>
+  </div>
+  </div>
+</div>
+
+
+<div class="container-fluid mt-4 intouch-container">
+  <div class="row align-items-center">
+    <div class="col-md-3">
+      <h2 class="touchheading ms-4" style="font-size: 22px;">Let's stay in touch</h2>
+      <p class="touch-text ms-4" style="font-size: 14px;">Get updates on sales specials and more</p>
+    </div>
+    <div class="col-md-3">
+    <form action="contactfooter" method="post" style="position: relative; max-width: 100%;">
+      <input type="text" placeholder="Enter  Email Address" class="email-address form-control" style="width: 100%;">
+      <button type="submit" class="rightbtn"><i class="bi bi-chevron-right"></i></button>
+    </form>
+  </div>
+  <div class="col-md-3">
+    <h2 class="touchheading" style="font-size: 22px;">Follow Mi</h2>
+      <p class="touch-text" style="font-size: 14px;">We want to hear from you</p>
+  </div> 
+  <div class="col-md-3 d-flex gap-1 justify-content-end flex-wrap">
+    <ul  class="d-flex list-unstyled m-0 p-0 gap-2 justify-content-end flex-wrap">
+    <li class="facebook social-icons">
+      <a href="#facebook"><i class="bi bi-facebook list-icons"></i></a>
+    </li>
+    <li class="youtube social-icons">
+      <a href="#youtube"><i class="bi bi-youtube list-icons"></i></a>
+    </li>
+    <li class="instagram social-icons">
+      <a href="#instagram"><i class="bi bi-instagram list-icons"></i></a>
+    </li>
+    <li class="x social-icons">
+      <a href="#x"><i class="bi bi-twitter-x list-icons"></i></a>
+    </li>
+    <li class="tiktok social-icons">
+      <a href="#tiktok"><i class="bi bi-tiktok list-icons"></i></a>
+    </li>
+    </ul>
+  </div>
+</div>
+</div>
+
+<div class="container-fluid d-none d-md-block">
+<div class="row mt-2 second-last-footer justify-content-center">
+  <div class="col-md-4 d-flex justify-content-center sec-footer">
+    <a href="#About" class="footer-link d-flex align-items-center gap-2">
+    <i class="bi bi-info-circle"></i>
+    <span class="footer-text">About Smartlink</span>
+    </a>
+  </div>
+  <div class="col-md-4 d-flex justify-content-center sec-footer">
+    <a href="#faqs" class="footer-link d-flex align-items-center gap-2">
+    <i class="bi bi-question-circle"></i>
+    <span class="footer-text">FAQ's</span>
+    </a>
+  </div>
+  <div class="col-md-4  d-flex justify-content-center sec-footer">
+    <a href="#help" class="footer-link d-flex align-items-center gap-2">
+    <i class="bi bi-chat-square-text"></i>
+    <span class="footer-text">Need Help?</span>
+    </a>
+  </div>
+</div>
+</div>
+
+<div class="container-fluid d-none d-md-block last-footer">
+  <div class="row justify-content-between">
+    <div class="col-12 col-sm-6 col-md-3 col-lg-2 mb-4">
+      <h6>PRODUCTS</h6>
+        <ul class="footerlist">
+          <li><a href="#" class="footer-link">All Products</a></li>
+          <li><a href="#" class="footer-link">Redmi Buds & Play</a></li>
+          <li><a href="#" class="footer-link">Redmi Watch 5 Active</a></li>
+          <li><a href="#" class="footer-link">Xiaomi Smart band 9 Active</a></li>
+          <li><a href="#" class="footer-link">Xiaomi Smart Camera C500 Pro</a></li>
+          <li><a href="#" class="footer-link">Xiaomi 67W GaN Charger 2C1A</a></li>
+
+        </ul>
+    </div>
+
+    <div class="col-12 col-sm-6 col-md-3 col-lg-2 mb-4"> 
+     <h6>GET TO KNOW US</h6> 
+      <ul class="footerlist">
+        <li><a href="#" class="footer-link">Our Team</a></li>
+        <li><a href="#" class="footer-link">About Us</a></li>
+        <li><a href="#" class="footer-link">Terms & Conditions</a></li>
+        <li><a href="#" class="footer-link">Packing Process</a></li>
+        <li><a href="#" class="footer-link">Customer Reviews</a></li>
+      </ul>
+  </div>
+
+  
+  <div class="col-12 col-sm-6 col-md-3 col-lg-2 mb-4"> 
+    <h6>AFTER SALE SERVICES</h6>
+      <ul class="footerlist">
+        <li><a href="#" class="footer-link">Privacy Policy</a></li>
+        <li><a href="#" class="footer-link">Refund & Return Policy</a></li>
+        <li><a href="#" class="footer-link">Warranty & Repair Policy</a></li>
+        <li><a href="#" class="footer-link">Shipping & Cancellation Policy</a></li>
+        <li><a href="#" class="footer-link">Estimated Delivery time</a></li>
+        <li><a href="#" class="footer-link">Secure Payment</a></li>
+        <li><a href="#" class="footer-link">User Guide</a></li>
+  </ul>
+  </div>
+
+
+<div class="col-12 col-sm-6 col-md-3 col-lg-3 mb-4"> 
+       <h6>LET US HELP YOU</h6>
+        <ul class="footerlist">
+          <li><a href="#" class="footer-link">How to Place Order</a></li>
+          <li><a href="#" class="footer-link">E-Gift Card</a></li>
+          <li><a href="#" class="footer-link">Product Authentication</a></li>
+          <li><a href="#" class="footer-link">Track Your Order</a></li>
+          <li><a href="#" class="footer-link">FAQs</a></li>
+          <li><a href="#" class="footer-link">Blogs</a></li>
+          <li><a href="#" class="footer-link">Xiaomi Community</a></li>
+  </ul>
+</div>
+
+<div class="col-12 col-sm-6 col-md-3 col-lg-3 mb-4"> 
+       <h6>CUSTOMER CARE</h6>
+        <ul class="footerlist">
+          <li><a href="#" class="footer-link">Support</a></li>
+          <li><a href="#" class="footer-link">Helpline Number: 03-111-111-050</a></li>
+          <li><a href="#" class="footer-link">info@mistore.pk</a></li>
+          <li><p>Service Timings 10am-6pm</p></li>
+        </ul>  
+          <h6 class="mt-5">PAYMENT METHODS</h6>
+          <div class="payment-container d-flex">
+          <div class="paymentmethods">
+            <img src="https://cdn.shopify.com/s/files/1/0231/3627/2464/files/web_icons-03.webp?v=1746514758" alt="mastercard">
+          </div>  
+          <div class="paymentmethods">
+            <img src="https://cdn.shopify.com/s/files/1/0231/3627/2464/files/web_icons-02.webp?v=1742289789" alt="visa">
+          </div>  `
+          <div class="paymentmethods">
+            <img src="https://cdn.shopify.com/s/files/1/0231/3627/2464/files/bank-transfer-icon.svg?v=1719473184" alt="banktransfer">
+          </div>
+          <div class="paymentmethods">
+            <img src="https://cdn.shopify.com/s/files/1/0231/3627/2464/files/web_icons-04.webp?v=1746515011" alt="COD">
+          </div>
+          </div> 
+    
+  </div>
+</div>
+</div>
+<footer class="text-center copyright-section d-none d-md-block">Copyright © 2025 Xiaomi. All Rights Reserved</footer>
+
+
+<div class="floating-buttons">
+    <a href="#" class="pill-btn help-btn">
+    <i class="bi bi-question-circle me-2"></i>Help</a>
+  <a href="#" class="pill-btn reward-btn">
+     <i class="bi bi-gift-fill me-2"></i>Reward</a>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="xiaomi.js"></script>
+<script src="xiaomilogin.js"></script>
+
+ </body>
+ </html>

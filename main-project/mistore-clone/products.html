@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+</head>
+<body>
+    <div class="product-container">
+  <div class="product-image">
+    <img id="productImage" src="" alt="">
+  </div>
+  <div class="product-details">
+    <h1 id="productTitle"></h1>
+    <p id="productPrice"></p>
+    <ul id="productFeatures"></ul>
+  </div>
+</div>
+
+<script src="products.js"></script>
+<script>
+  // Get ID from URL
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get('id');
+
+  // Get product from array (in products.js)
+  const product = products[id];
+
+  if (product) {
+    document.getElementById('productImage').src = product.img;
+    document.getElementById('productTitle').textContent = product.title;
+    document.getElementById('productPrice').textContent = product.price;
+
+    const featuresList = document.getElementById('productFeatures');
+    product.features.forEach(f => {
+      const li = document.createElement('li');
+      li.textContent = f;
+      featuresList.appendChild(li);
+    });
+  }
+</script>
+
+</body>
+</html>
